@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 
 class DateUtil {
+
   static dayMonthYearFromDate(DateTime dateTime) {
     int day = dateTime.day;
     int month = dateTime.month;

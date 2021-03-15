@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:t_society/src/model/user.dart';
 import 'package:t_society/src/model/visitor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,13 +34,13 @@ class AppPreference {
 
   set token(String value) => _sharedPreferences.setString(TOKEN, value);
 
-  VisitorInfo get visitorInfo {
+  Visitor get visitor {
     var strData = _sharedPreferences.getString(VISITOR_INFO);
     if(strData == null) return null;
-    else return VisitorInfo.fromJson(json.decode(strData));
+    else return Visitor.fromJson(json.decode(strData));
   }
 
-  set visitorInfo(VisitorInfo info) {
+  set visitor(Visitor info) {
     if(info == null)
       _sharedPreferences.setString(VISITOR_INFO, null);
     else

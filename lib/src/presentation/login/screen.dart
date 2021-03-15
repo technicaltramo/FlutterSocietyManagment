@@ -66,11 +66,22 @@ class LoginScreen extends GetView<LoginController> {
   }
 
   Padding _buildLoginTitle() {
+
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: AppTitleText1(title: "Login",),
+      child: Text("Login",style: TextStyle(
+        fontWeight: FontWeight.bold,fontSize: 28
+      ),),
     );
+
+
   }
 }
+
+
+
+
+
 
 

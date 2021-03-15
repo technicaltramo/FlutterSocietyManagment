@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:t_society/src/model/user.dart';
 
 import 'expense.dart';
@@ -201,6 +202,7 @@ class ExpenseReportPerUser {
   String paymentAt;
   int paymentStatus;
   int totalAmount;
+  RxBool isExpenseListVisible = false.obs;
 
   ExpenseReportPerUser(
       {this.sId,

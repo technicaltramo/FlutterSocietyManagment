@@ -40,15 +40,15 @@ class _BaseScreenState extends State<BaseScreen> with WidgetsBindingObserver {
       var time = DateTime.now();
       var currentTimeInMilliSecond =time.millisecond;
 
-      VisitorInfo info = _appPreference.visitorInfo;
+      Visitor info = _appPreference.visitor;
       if(info !=null){
           if (int.parse(info.timeInMilliSecond) > currentTimeInMilliSecond){
             if(info.status == 1){
               Get.to(UpcomingVisitorScreen(info));
-            } else _appPreference.visitorInfo = null;
+            } else _appPreference.visitor = null;
           }
           else{
-            _appPreference.visitorInfo = null;
+            _appPreference.visitor = null;
           }
       }
       // came back to Foreground

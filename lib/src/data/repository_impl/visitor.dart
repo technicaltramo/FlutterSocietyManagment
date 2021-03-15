@@ -11,17 +11,31 @@ class VisitorRepositoryImpl extends VisitorRepository {
   VisitorRepositoryImpl(this._dioClient);
 
   @override
-  Future<CommonResponse> newVisitorEntry(File visitorPhoto,String userId, String name,
-      String mobile, String vehicleNumber) async {
+  Future<CommonResponse> newVisitorEntry(File visitorPhoto, String userId,
+      String name, String mobile, String vehicleNumber) async {
     FormData data = FormData.fromMap({
       "visitorPic": await MultipartFile.fromFile(visitorPhoto.path,
           filename: "visitorPic"),
       "name": name,
-      "toUser" : userId,
+      "toUser": userId,
       "mobile": mobile,
       "vehicleNumber": vehicleNumber ?? "na",
     });
-    final result = await _dioClient.post("visitor/new-visitor-entry", data: data);
+    final result =
+        await _dioClient.post("visitor/new-visitor-entry", data: data);
     return CommonResponse.fromJson(result);
+  }
+
+  @override
+  Future<CommonResponse> onVisitorAcceptReject(
+      bool isAccept, String fromUser, String toGuard,String visitorId) async {
+    var response = await _dioClient.post("visitor/on-accept-reject", data: {
+      "isAccept": isAccept.toString(),
+      "visitorId": visitorId,
+      "fromUser": fromUser,
+      "toGuard": toGuard
+    });
+
+    return CommonResponse.fromJson(response);
   }
 }

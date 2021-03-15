@@ -53,3 +53,11 @@ class BuildVerticalLine extends StatelessWidget{
   }
 
 }
+
+class BuildTopStatusBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+

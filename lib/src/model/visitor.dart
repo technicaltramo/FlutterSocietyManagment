@@ -1,31 +1,52 @@
-class VisitorInfo {
-  String name;
-  String mobile;
+class Visitor {
+  String visitorId;
+  String subtype;
+  String userId;
+  String guardId;
+  String visitorName;
+  String visitorMobile;
   String vehicleNumber;
-  int status;
   String picUrl;
-  String  timeInMilliSecond;
+  String timeInMilliSecond;
+  int status;
 
-  VisitorInfo(
-      {this.name, this.mobile, this.vehicleNumber, this.status, this.picUrl,this.timeInMilliSecond});
+  Visitor(
+      {this.visitorId,
+      this.subtype,
+      this.userId,
+      this.guardId,
+      this.visitorName,
+      this.visitorMobile,
+      this.vehicleNumber,
+      this.picUrl,
+      this.timeInMilliSecond,
+      this.status});
 
-  VisitorInfo.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    mobile = json['mobile'];
+  Visitor.fromJson(Map<String, dynamic> json) {
+    visitorId = json['visitorId'];
+    subtype = json['subtype'];
+    userId = json['userId'];
+    guardId = json['guardId'];
+    visitorName = json['visitorName'];
+    visitorMobile = json['visitorMobile'];
     vehicleNumber = json['vehicleNumber'];
-    status = json['status'];
     picUrl = json['picUrl'];
     timeInMilliSecond = json['timeInMilliSecond'];
+    status = json['status'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['mobile'] = this.mobile;
+    data['visitorId'] = this.visitorId;
+    data['subtype'] = this.subtype;
+    data['userId'] = this.userId;
+    data['guardId'] = this.guardId;
+    data['visitorName'] = this.visitorName;
+    data['visitorMobile'] = this.visitorMobile;
     data['vehicleNumber'] = this.vehicleNumber;
-    data['status'] = this.status;
     data['picUrl'] = this.picUrl;
     data['timeInMilliSecond'] = this.timeInMilliSecond;
+    data['status'] = this.status;
     return data;
   }
 }

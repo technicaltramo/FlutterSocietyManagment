@@ -37,25 +37,24 @@ class _MyAppState extends State<MyApp> {
     var toScreen;
     var time = DateTime.now();
     var currentTimeInMilliSecond = time.millisecond;
-    var visitor = appPreference.visitorInfo;
+    var visitor = appPreference.visitor;
     if (visitor != null) {
-      if (int.parse(appPreference.visitorInfo.timeInMilliSecond) >
+      if (int.parse(appPreference.visitor.timeInMilliSecond) >
           currentTimeInMilliSecond) {
-        toScreen = UpcomingVisitorScreen(appPreference.visitorInfo);
+        toScreen = UpcomingVisitorScreen(appPreference.visitor);
       } else {
-        appPreference.visitorInfo = null;
+        appPreference.visitor = null;
         toScreen = SplashScreen();
       }
-      ;
     } else
       toScreen = SplashScreen();
 
     return GetMaterialApp(
+        debugShowCheckedModeBanner : false,
         theme: ThemeData(
             textTheme: TextTheme(headline1: TextStyle()),
           primaryColor: Colors.purple
         ),
-        debugShowCheckedModeBanner: true,
         home: toScreen);
   }
 }
